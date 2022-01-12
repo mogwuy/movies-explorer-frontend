@@ -1,0 +1,12 @@
+.moviescard__saveremove {
+    margin: 19px 14px 0 0;
+    width: 30px;
+    height: 30px;
+    background: transparent url(../../../images/d9.svg) no-repeat center top;
+    text-indent: -1000em;;
+    text-decoration: none;
+    border:0px;
+    padding: 0;
+    cursor: pointer;
+    transition: opacity .4s ease-out;
+}

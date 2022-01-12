@@ -1,0 +1,29 @@
+.movies{
+    margin: 0 auto;
+}
+
+.more {
+  margin: 50px auto 0;
+  width: 1140px;
+  height: 166px;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.more__button {
+  border: 1px solid rgb(232, 232, 232);
+  border-radius: 10px;
+  padding: 0;
+  font-family: 'Inter', 'Arial', sans-serif;
+  width: 320px;
+  height: 36px;
+  background: #fff;
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  text-decoration-line: none;
+  transition: opacity .4s ease-out;
+  cursor: pointer;
+}

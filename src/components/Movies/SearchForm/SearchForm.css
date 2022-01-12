@@ -1,0 +1,106 @@
+.search {
+    margin-top:80px;
+  }
+
+  .search__form {
+    width: 1140px;
+    margin: 0 auto;
+  }
+
+  .search__input {
+    width: 1086px;
+    height: 50px;
+    background: #F9F9F9;
+    border-radius: 8px;
+    border:0px;
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: #A0A0A0;
+    padding: 16px 20px 16px 20px;
+  }
+
+  .search__submit {
+    width: 44px;
+    height: 44px;
+    background: transparent url(../../../images/find-3.svg) no-repeat center top;
+    text-indent: -1000em;;
+    text-decoration: none;
+    border:0px;
+    padding: 0;
+    margin-left:10px;
+    cursor: pointer;
+  }
+
+  .search__checkbox {
+    margin:28px auto;
+    width: 156px;
+  }
+
+  .search__switch {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 20px;
+  }
+
+   .search__switch input {display:none;}
+  
+   .search__slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .search__slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .search__slider {
+    background-color: #2BE080;
+  }
+  
+  input:focus + .search__slider {
+    box-shadow: 0 0 1px #2BE080;
+  }
+  
+  input:checked + .search__slider:before {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+  }
+  
+  .search__slider{
+    border-radius: 34px;
+  }
+  
+  .search__slider:before {
+    border-radius: 50%;
+  }
+
+  .search__text {
+    margin-left: 52px;
+    margin-top: 2px;
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 18px;
+    color: #000000;
+  }

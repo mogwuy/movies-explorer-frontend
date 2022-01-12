@@ -1,0 +1,44 @@
+.aboutme__portfolio {
+    margin-top: 100px;
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
+    text-align: left;
+    color: #A0A0A0;
+  }
+  
+  .aboutme__portfolio-links {
+    margin-top: 50px;
+    padding: 0px;
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 50px;
+    text-align: left;
+    letter-spacing: -0.04em;
+  }
+  
+  .aboutme__portfolio-link {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .aboutme__link {
+    margin-top:20px;
+    margin-bottom: 20px;
+    text-decoration-line: none;
+    transition: opacity .4s ease-out;
+    cursor: pointer;
+    color: #000000;
+  }
+  
+  .aboutme__link-image {
+    margin-top:20px;
+    width: 19px;
+    height: 60px;
+    text-align: right;
+  }
