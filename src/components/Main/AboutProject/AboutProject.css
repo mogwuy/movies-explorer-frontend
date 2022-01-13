@@ -1,3 +1,9 @@
+.about {
+  margin-left: 30px;
+  max-width: 1140px;
+  height: 462px;
+}
+
 .about__table {
     margin-top: 70px;
     display: flex;
@@ -9,6 +15,7 @@
   }
   
   .about__table-title {
+    margin: 0;
     font-family: 'Inter', 'Arial', sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -19,7 +26,8 @@
   }
   
   .about__table-text {
-    margin-top: 23px;
+    margin-top: 27px;
+    max-width: 531px;
     font-family: 'Inter', 'Arial', sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -31,13 +39,12 @@
   }
   
   .about__string {
-    margin-top: 110px;
+    margin-top: 81px;
     display: flex;
     justify-content: space-between;
   }
   .about__string-left {
-    width: 228px;
-    height: 259px;
+    width: 20%;
   }
   
   .about__string-black {
@@ -68,8 +75,7 @@
   }
   
   .about__string-right {
-    width: 912px;
-    height: 259px;
+    width: 80%;
   }
   
   .about__string-grey{
@@ -89,3 +95,102 @@
     color: #000;
   }
   
+
+  @media screen and (max-width: 768px) {
+
+    .about {
+      max-width: 728px;
+      height: 467px;
+      margin-left: 50px;
+      margin-right: 50px;
+    }
+    .about__table-block {
+      width: 302px;
+    }
+
+    .about__string {
+      margin-top: 74px;
+    }
+
+    .about__string-left {
+      width: 22%;
+  }
+  .about__string-right {
+    width: 78%;
+}
+    .about__table-text {
+      margin-top: 21px;
+      margin-bottom:0;
+  }
+  }
+
+  @media screen and (max-width: 575px) {
+
+    .about__table {
+      margin-top: 70px;
+      flex-wrap: wrap;
+      flex-direction: column;
+    }  
+
+    .about__table-block {
+      width: 217px;
+  }
+
+    .about {
+      height: 658px;
+    }
+  
+    .about__table-title {
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    .about__table-text {
+      font-size: 11px;
+      line-height: 16px;
+    }
+  }
+
+  @media screen and (max-width: 435px) {
+    .about{
+      margin-left: 13px;
+      margin-right: 13px;
+      height: 489px;
+    }
+    .about__table {
+      margin-top: 0px;
+  } 
+
+  .about__table-text{
+    margin-top: 12px;
+  }
+  .about__table-title {
+    margin-top: 47px;
+  }
+
+  .about__string {
+    margin-top: 37px;
+}
+    .about__string-blacktext {
+      padding-top: 11px;
+      font-size: 11px;
+      line-height: 13px;
+    }
+    .about__string-left {
+      width: 40%;
+      height: 259px;
+    }
+    .about__string-right {
+      width: 60%;
+      height: 259px;
+    }
+  .about__string-graytext {
+    padding-top: 11px;
+    font-size: 11px;
+    line-height: 13px;
+  }
+  .about__string-back {
+    font-size: 11px;
+    line-height: 13px;
+  }
+  }

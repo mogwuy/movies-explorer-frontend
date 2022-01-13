@@ -1,6 +1,6 @@
 .navtab {
     margin: 151px auto;
-    width: 308px;
+    max-width: 308px;
     display: flex;
     justify-content: space-between;
   }
@@ -23,3 +23,33 @@
     cursor: pointer;
   }
   
+
+  @media screen and (max-width: 768px) {
+
+    .navtab {
+      margin: 314px auto;
+    }
+  
+  }
+
+  @media screen and (max-width: 575px) {
+    .navtab {
+      margin: 274px auto 17px;
+    }
+
+  }
+
+  @media screen and (max-width: 435px) {
+    .navtab {
+      margin: 189px auto 17px;
+      max-width: 252px;
+    }
+    .navtab__link {
+
+      width: 82px;
+      height: 26px;
+      font-size: 10px;
+      line-height: 16px;
+
+    }
+  }

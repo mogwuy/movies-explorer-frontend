@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import './NewTab.css';
+import './NavTab.css';
 
 function NewTab() {
     return (

@@ -6,7 +6,7 @@ function Portfolio() {
         <>
         <div className="aboutme__portfolio">Портфолио</div>
         <ul className="aboutme__portfolio-links">
-          <li className="aboutme__portfolio-link"> <a href="" className="aboutme__link">Статичный</a><img className="aboutme__link-image" src={aboutMeLinkImage} alt="Фотография"></img></li>
+          <li className="aboutme__portfolio-link"> <a href="" className="aboutme__link">Статичный сайт</a><img className="aboutme__link-image" src={aboutMeLinkImage} alt="Фотография"></img></li>
           <div className="whiteline"></div>
           <li className="aboutme__portfolio-link"> <a href="" className="aboutme__link">Адаптивный сайт</a><img className="aboutme__link-image" src={aboutMeLinkImage} alt="Фотография"></img></li>
           <div className="whiteline"></div>
