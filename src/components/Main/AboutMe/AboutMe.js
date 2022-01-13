@@ -15,8 +15,8 @@ function AboutMe() {
               <div className="aboutme__text">Я родился и живу в Саратове, закончил факультет экономики СГУ. У меня есть жена 
 и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ Контур». После того, как прошёл курс по веб-разработке, начал заниматься фриланс-заказами и ушёл с постоянной работы.</div>
               <div className="aboutme__links">
-                <a href="" className="aboutme__link">Facebook</a>
-                <a href="" className="aboutme__link">GitHub</a>
+                <a href="https://facebook.com/" className="aboutme__link">Facebook</a>
+                <a href="https://github.com/mogwuy/" className="aboutme__link">GitHub</a>
               </div>
             </div>
             <div className="aboutme__right">
