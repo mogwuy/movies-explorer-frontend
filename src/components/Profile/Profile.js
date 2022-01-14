@@ -2,10 +2,10 @@ import Header from '../Header/Header.js';
 import Navigatiion from '../Navigation/Navigation.js'
 import './Profile.css';
 
-function Profile() {
+function Profile(props) {
     return (
         <div className="profile">
-            <Header nav={<Navigatiion />}/>
+            <Header nav={<Navigatiion onMenuClick={props.onMenuClick}/>}/>
             
             <h5 className="profile__title">Привет, Виталий!</h5>
 

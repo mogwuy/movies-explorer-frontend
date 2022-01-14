@@ -5,11 +5,11 @@ import SearchForm from './SearchForm/SearchForm.js'
 import MoviesCardList from './MoviesCardList/MoviesCardList.js'
 import Footer from '../Footer/Footer.js';
 
-function Movies() {
+function Movies(props) {
     return (
       <>
 <div className="movies">
-    <Header nav={<Navigatiion />}/>
+    <Header nav={<Navigatiion onMenuClick={props.onMenuClick}/>}/>
     <SearchForm /> 
     <MoviesCardList />
     <section className="more">

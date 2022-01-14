@@ -2,7 +2,7 @@ import './Navigation.css';
 import { NavLink } from 'react-router-dom';
 import icon from '../../images/icon.png';
 
-function Navigation() {
+function Navigation(props) {
 
   let activeClassName = "nav__link_active"
 
@@ -16,7 +16,7 @@ function Navigation() {
         <NavLink type="button" to="/profile"  className="nav__link_profile">Аккаунт</NavLink>
           <img className="account__logo" src={icon} alt="Лого Профиля"></img>
         </div>
-        <button className="nav__menu-link" >Меню</button>
+        <button className="nav__menu-link" onClick={props.onMenuClick} >Меню</button>
         </>
       );
     }
