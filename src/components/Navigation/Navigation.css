@@ -5,7 +5,8 @@
   }
 
   .navigation {
-margin-top:28px;
+    margin-top:28px;
+    margin-left: 57px;
 
   }
 
@@ -18,7 +19,7 @@ margin-top:28px;
     line-height: 18px;
     color: #000000;
     transition: opacity .4s ease-out;
-    margin-right: 30px;
+    margin-right: 18px;
     text-align: center;
     cursor: pointer;
   }
@@ -35,7 +36,7 @@ margin-top:28px;
     line-height: 18px;
     color: #000000;
     transition: opacity .4s ease-out;
-    margin-right: 30px;
+    margin-right: 18px;
     text-align: center;
     cursor: pointer;
   }
@@ -46,6 +47,7 @@ margin-top:28px;
 
   .nav__profile {
       margin-top: 21px;
+      margin-right: 29px;
       width: 100px;
       height: 32px;
       padding-right: 2px;
@@ -71,9 +73,46 @@ margin-top:28px;
     cursor: pointer;
   }
 
+  .nav__menu-link {
+    visibility: hidden;
+    display:none;
+  }
+
   .account__logo {
     margin-top: 2px;
     margin-right: 2px;
     width: 26px;
     height: 26px;
+  }
+
+  @media screen and (max-width: 790px) {
+    .navigation {
+      visibility: hidden;
+      display:none;
+    }
+    .nav__profile {
+      visibility: hidden;
+      display:none;
+    }
+    .nav__menu-link {
+      visibility: visible;
+      display:block;
+      width: 44px;
+      height: 44px;
+      margin-top:15px;
+      margin-right: 12px;
+      background: transparent url(../../images/icon__COLOR_icon-main.svg) no-repeat center top;
+      text-indent: -1000em;;
+      text-decoration: none;
+      border:0px;
+      padding: 0;
+      margin-left:10px;
+      cursor: pointer;
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+    .nav__menu-link {
+      margin-right: 0px;
+    }
   }

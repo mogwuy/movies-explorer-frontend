@@ -16,6 +16,7 @@ function Navigation() {
         <NavLink type="button" to="/profile"  className="nav__link_profile">Аккаунт</NavLink>
           <img className="account__logo" src={icon} alt="Лого Профиля"></img>
         </div>
+        <button className="nav__menu-link" >Меню</button>
         </>
       );
     }

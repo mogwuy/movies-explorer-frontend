@@ -1,7 +1,6 @@
 import './App.css';
 import '../../vendor/normalize.css';
 import '../../vendor/fonts.css';
-import Footer from '../Footer/Footer.js';
 import Main from '../Main/Main.js';
 import Movies from '../Movies/Movies.js';
 import SavedMovies from '../SavedMovies/SavedMovies.js';
@@ -24,8 +23,6 @@ function App() {
           <Route path="/signin" element= {<Login />} />
           <Route path="*" element= {<NotFound />} />
         </Routes>
-
-      <Footer />
   </div>
   );
 }

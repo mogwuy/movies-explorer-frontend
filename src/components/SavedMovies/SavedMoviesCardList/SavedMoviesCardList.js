@@ -7,6 +7,13 @@ function SavedMoviesCardList() {
           <SavedMoviesCard />
           <SavedMoviesCard />
           <SavedMoviesCard />
+          <SavedMoviesCard />
+          <SavedMoviesCard />
+          <SavedMoviesCard />
+          <SavedMoviesCard />
+          <SavedMoviesCard />
+          <SavedMoviesCard />
+          <SavedMoviesCard />
         </section>
     )
 };

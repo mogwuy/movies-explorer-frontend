@@ -9,10 +9,8 @@ function MoviesCardList() {
           <MoviesCard saved="moviescard__notsave"/>
           <MoviesCard saved="moviescard__save"/>
           <MoviesCard saved="moviescard__save"/>
-          <MoviesCard saved="moviescard__notsave"/>
-          <MoviesCard saved="moviescard__notsave"/>
-          <MoviesCard saved="moviescard__notsave"/>
           <MoviesCard saved="moviescard__save"/>
+          <MoviesCard saved="moviescard__notsave"/>
           <MoviesCard saved="moviescard__notsave"/>
         </section>
     )

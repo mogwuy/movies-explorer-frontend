@@ -20,7 +20,7 @@ function Profile() {
                 <input type="email" className="profile__input" defaultValue="pochta@yandex.ru" />
               </div>
               <div className="profile__buttonsub">
-                <input type="submit" className="profile__submit" defaultValue="Редактировать" />
+                <button className="profile__submit" defaultValue="Редактировать">Редактировать</button>
               </div>
             </form>
             <div className="profile__buttonsign">

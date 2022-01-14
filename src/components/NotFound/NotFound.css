@@ -1,18 +1,16 @@
 .notfound {
-    width: 1140px;
-    height:800px;
+    max-width: 1140px;
     margin:0 auto;
-
-
 }
 
 .notfound__center {
-    margin:246px auto;
-    width:400px;
+    margin:246px auto 0;
+    max-width:400px;
+    min-height: calc(100vh - 280px);
 }
 
 .notfound__centerbutton {
-    margin:184px auto;
+    margin:0 auto;
     width:50px;
 }
 
@@ -39,7 +37,6 @@
 }
 
 .notfound__button {
-    
     font-family: 'Inter', 'Arial', sans-serif;
     color: #000;
     font-style: normal;
@@ -52,3 +49,14 @@
     border: 0;
     cursor: pointer;
 }
+
+@media screen and (max-width: 420px) {
+    .notfound__title {
+        font-size: 80px;
+        line-height: 97px;
+    }
+    .notfound__subtitle {
+        font-size: 12px;
+        line-height: 15px;
+    }
+  }
