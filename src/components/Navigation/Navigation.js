@@ -10,7 +10,7 @@ function Navigation(props) {
         <>
         <nav className="navigation">
           <NavLink type="button" to="/movies"  className={({ isActive }) => isActive ? activeClassName : "nav__link"}>Фильмы</NavLink>
-          <NavLink type="button" to="/saved" className={({ isActive }) => isActive ? activeClassName : "nav__link"}>Сохраннные фильмы</NavLink>
+          <NavLink type="button" to="/saved-movies" className={({ isActive }) => isActive ? activeClassName : "nav__link"}>Сохраннные фильмы</NavLink>
         </nav>
         <div className="nav__profile">
         <NavLink type="button" to="/profile"  className="nav__link_profile">Аккаунт</NavLink>

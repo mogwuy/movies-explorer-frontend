@@ -9,31 +9,36 @@ import Register from '../Register/Register.js';
 import Login from '../Login/Login.js';
 import NotFound from '../NotFound/NotFound.js';
 import NavigationMenu from '../Navigation/NavigationMenu/NavigationMenu.js';
+import Preloader from '../Movies/Preloader/Preloader.js'
 import { Route, Routes } from 'react-router-dom';
-import React from 'react';
+import React, { Suspense } from 'react';
+
 
 function App() {
-  const [isMenuOpen, setMenuOpen] = React.useState(false);
 
+  //Открытие и Закрытие меню
+  const [isMenuOpen, setMenuOpen] = React.useState(false);
   function handleMenuClick() {
     setMenuOpen(true);
      }
-
   function closeMenu() {
     setMenuOpen(false);
   }
+
   return (
     <div className="page">
+      <Suspense fallback={<Preloader/>}>
         <Routes>
           <Route exact path="/" element= {<Main />} />
           <Route path="/movies" element= {<Movies onMenuClick={handleMenuClick} />} />
-          <Route path="/saved" element= {<SavedMovies onMenuClick={handleMenuClick} />} />
+          <Route path="/saved-movies" element= {<SavedMovies onMenuClick={handleMenuClick} />} />
           <Route path="/profile" element= {<Profile onMenuClick={handleMenuClick}/>} />
           <Route path="/signup" element= {<Register />} />
           <Route path="/signin" element= {<Login />} />
           <Route path="*" element= {<NotFound />} />
         </Routes>
         <NavigationMenu isMenuOpen={isMenuOpen} isClose={closeMenu}/>
+      </Suspense>
   </div>
   );
 }
