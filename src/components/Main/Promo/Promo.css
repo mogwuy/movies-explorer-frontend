@@ -19,7 +19,12 @@
     letter-spacing: -0.04em;
     color: #000000;
   }
-  
+
+  @media screen and (max-width: 1220px) {
+    .promo {
+       margin: 20px 20px 0 20px;
+    }
+  }
   @media screen and (max-width: 768px) {
 
     .promo {
@@ -38,6 +43,7 @@
       text-align: center;
       letter-spacing: -0.04em;
       color: #000000;
+      margin: 0 5px 0;
     }
   
   }

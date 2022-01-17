@@ -1,11 +1,11 @@
 import './NavigationMenu.css';
 import closeButton from '../../../images/close-button.svg';
-import icon from '../../../images/icon.png';
+import icon from '../../../images/icon.svg';
 import { NavLink } from 'react-router-dom';
 
 function NavigationMenu(props) {
   const isOpened = props.isMenuOpen ? 'menu_opened' : " ";
-  let activeClassName = "menu__link_active"
+  let activeClassName = "menu__link-active"
     return (
         <section className={`menu ${isOpened}`} >
         <div className="menu__window" >
@@ -17,8 +17,8 @@ function NavigationMenu(props) {
               <NavLink type="button" to="/saved-movies" onClick={props.isClose} className={({ isActive }) => isActive ? activeClassName : "menu__link"}>Сохраннные фильмы</NavLink>
             </nav>
             <div className="menu__profile">
-              <NavLink type="button" to="/profile"  onClick={props.isClose} className="nav__link_profile">Аккаунт</NavLink>
-              <img className="account__logo" src={icon} alt="Лого Профиля"></img>
+              <NavLink type="button" to="/profile"  onClick={props.isClose} className="menu__profile-link">Аккаунт</NavLink>
+              <img className="menu__profile-account-logo" src={icon} alt="Лого Профиля"></img>
             </div>
           </div>
           <div className="menu__close-space" onClick={props.isClose}></div>

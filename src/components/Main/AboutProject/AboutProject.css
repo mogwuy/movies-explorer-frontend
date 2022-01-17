@@ -106,6 +106,7 @@
     }
     .about__table-block {
       width: 302px;
+      margin-right: 10px;
     }
 
     .about__string {
@@ -134,6 +135,7 @@
 
     .about__table-block {
       width: 217px;
+      margin-bottom:20px;
   }
 
     .about {

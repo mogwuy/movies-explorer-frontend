@@ -5,7 +5,7 @@ function SearchForm() {
     return (
     <section className="search">
       <form className="search__form">
-        <input type="search" className="search__input"  defaultValue="Фильм"/>
+        <input type="search" className="search__input"  defaultValue="Фильм" required/>
         <input type="submit" className="search__submit" value="Искать" />
         <div className="search__checkbox">
           <label className="search__switch">

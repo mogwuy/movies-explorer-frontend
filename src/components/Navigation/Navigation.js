@@ -1,22 +1,22 @@
 import './Navigation.css';
 import { NavLink } from 'react-router-dom';
-import icon from '../../images/icon.png';
+import icon from '../../images/icon.svg';
 
 function Navigation(props) {
 
-  let activeClassName = "nav__link_active"
+  let activeClassName = "nav__link-active"
 
     return (
         <>
-        <nav className="navigation">
+        <nav className="nav">
           <NavLink type="button" to="/movies"  className={({ isActive }) => isActive ? activeClassName : "nav__link"}>Фильмы</NavLink>
           <NavLink type="button" to="/saved-movies" className={({ isActive }) => isActive ? activeClassName : "nav__link"}>Сохраннные фильмы</NavLink>
         </nav>
-        <div className="nav__profile">
-        <NavLink type="button" to="/profile"  className="nav__link_profile">Аккаунт</NavLink>
-          <img className="account__logo" src={icon} alt="Лого Профиля"></img>
+        <div className="profile-nav">
+        <NavLink type="button" to="/profile"  className="profile-nav__link">Аккаунт</NavLink>
+          <img className="profile-nav__account-logo" src={icon} alt="Лого Профиля"></img>
         </div>
-        <button className="nav__menu-link" onClick={props.onMenuClick} >Меню</button>
+        <button className="menu-link" onClick={props.onMenuClick} >Меню</button>
         </>
       );
     }

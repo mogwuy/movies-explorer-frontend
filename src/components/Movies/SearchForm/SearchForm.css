@@ -34,6 +34,10 @@
     cursor: pointer;
   }
 
+  .search__submit:hover {
+    opacity: 0.8;
+  }
+
   .search__checkbox {
     margin:28px auto;
     width: 156px;

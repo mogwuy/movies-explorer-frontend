@@ -1,4 +1,4 @@
-.techs_background {
+.techs__background {
     background: #F5F5F5;
     width: 100%;
     height: 628px;
@@ -73,7 +73,7 @@
    }
 
    @media screen and (max-width: 768px) {
-  .techs_background {
+  .techs__background {
     height: 565px;
   }   
   .techs {
@@ -112,7 +112,7 @@
     .techs {
       height: 680px;
      }
-    .techs_background {
+    .techs__background {
       height: 680px;
      }
 
@@ -127,7 +127,7 @@
     .techs {
       height: 740px;
      }
-     .techs_background {
+     .techs__background {
       height: 740px;
      }
 
@@ -139,7 +139,7 @@
       margin-left: 13px;
       margin-right: 13px;
      }
-     .techs_background {
+     .techs__background {
       background: #FFF;
      }
 
