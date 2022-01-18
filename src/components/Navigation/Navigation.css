@@ -86,15 +86,15 @@
   }
 
   @media screen and (max-width: 790px) {
-    .navigation {
+    .nav {
       visibility: hidden;
       display:none;
     }
-    .nav__profile {
+    .profile-nav {
       visibility: hidden;
       display:none;
     }
-    .nav__menu-link {
+    .menu-link {
       visibility: visible;
       display:block;
       width: 44px;
@@ -112,7 +112,7 @@
   }
 
   @media screen and (max-width: 320px) {
-    .nav__menu-link {
+    .menu-link {
       margin-right: 0px;
     }
   }
