@@ -1,0 +1,118 @@
+.footer {
+    max-width: 1140px;
+    padding-top: 62px;
+    margin: 0 auto;
+  }
+  
+  .footer__text {
+    margin-bottom: 20px;
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    color: #A0A0A0;
+  }
+  
+  .footer__block {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .footer__copyright {
+    margin-top: 20px;
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    color:#000;
+  }
+  
+  .footer__links {
+    margin-top: 20px;
+    width: 263px;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .footer__link-element {
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: right;
+    color:#000;
+  }
+  
+  .footer__link {
+    margin-top:20px;
+    margin-bottom: 20px;
+    text-decoration-line: none;
+    transition: opacity .4s ease-out;
+    cursor: pointer;
+    color: #000000;
+  }
+
+  @media screen and (max-width: 768px) {
+    .footer__text {
+      margin-top: 17px;
+      margin-bottom: 19px;
+    }
+
+    .footer {
+      margin-left:50px;
+      margin-right:50px;
+    }
+  
+  }
+
+  @media screen and (max-width: 466px) {
+    .footer {
+      margin-left:13px;
+      margin-right:13px;
+    } 
+
+    .footer__block {
+      flex-wrap: wrap;
+      text-align: center;
+      flex-direction: column-reverse; 
+    }
+    
+    .footer__copyright {
+      margin-top: 5px;
+      font-size: 12px;
+      line-height: 15px;
+      color: #A0A0A0;
+    }
+
+    .footer__link-element {
+      margin-top: 12px;
+      font-size: 12px;
+      line-height: 15px;
+      text-align: center;
+    }
+
+    .footer__links {
+      width: 178px;
+      padding:0;
+      margin-top: 14px;
+      margin-right: auto;
+      margin-left: auto;
+      flex-direction: column; 
+      justify-content: center;
+
+    }
+
+    .footer__text {
+      margin-top: 16px;
+      margin-bottom: 15px;
+      font-size: 12px;
+      line-height: 15px;
+  }
+    
+  }

@@ -1,0 +1,52 @@
+body {
+  background-color: white;
+}
+
+.page {
+  margin: auto;
+  max-width: 1200px;
+}
+
+
+
+.titles {
+  margin: 107px 0 23px 0px;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: -0.04em;
+  color: #000;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+}
+
+.whiteline {
+  width: 100%;
+  height: 1px;
+  background-color: #E5E5E5;
+  margin: 0 auto 0;
+}
+
+@media screen and (max-width: 768px) {
+
+  .titles {
+    margin: 89px 0 23px 0px;
+  }
+  
+}
+
+@media screen and (max-width: 435px) {
+
+  .titles {
+    margin: 58px 0 23px 0px;
+    font-size: 17px;
+    line-height: 27px;
+  }
+  
+}
