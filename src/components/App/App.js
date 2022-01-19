@@ -13,6 +13,7 @@ import NavigationMenu from '../Navigation/NavigationMenu/NavigationMenu.js';
 import Preloader from '../Movies/Preloader/Preloader.js'
 import { Route, Routes } from 'react-router-dom';
 import React, { Suspense } from 'react';
+import { useMediaQuery } from 'react-responsive'
 import {movies} from '../../utils/MoviesApi';
 
 
@@ -20,11 +21,15 @@ function App(props) {
 
   const [currentCards, setCards] = React.useState([]);
   const [allCards, setAllCards] = React.useState([]);
-  const [searchClassName , setSearchClassName] = React.useState ("moviescards__notfound_hide");
-  const PAGE_SIZE = 3 ; 
-  const [index , setIndex] = React.useState (0);
-  const [visibleData , setVisibleData] = React.useState ([]);
-  const [buttonClassName , setButtonClassName] = React.useState ("more__button_hide");
+  const [searchClassName, setSearchClassName] = React.useState ("moviescards__notfound_hide");
+  const [PAGE_SIZE, setPAGE_SIZE ] = React.useState (3);
+  const [add_SIZE, setAdd_SIZE ] = React.useState (3);
+  const [index, setIndex] = React.useState (1);
+  const [visibleData, setVisibleData] = React.useState ([]);
+  const [buttonClassName, setButtonClassName] = React.useState ("more__button_hide");
+  const isMediumMedia = useMediaQuery({query: '(max-width: 1187px)' })
+  const isSmallMedia = useMediaQuery({query: '(max-width: 675px)' })
+
 
   //Загружаем сразу все карточки с сервера в память
 React.useEffect(() => {
@@ -35,7 +40,23 @@ React.useEffect(() => {
    .catch((err) => {
      console.log(`Ошибка: ${err}`); 
      });
+
   });
+
+
+    //Если размер экрана изменился
+  React.useEffect(() => {
+      if ( isMediumMedia ) {
+        setPAGE_SIZE(8);
+        setAdd_SIZE(2);
+      } else if (isSmallMedia) {
+        setPAGE_SIZE(5);
+        setAdd_SIZE(2);
+      } else {
+        setPAGE_SIZE(12);
+        setAdd_SIZE(3);
+      }
+    });
 
   //Открытие и Закрытие меню
   const [isMenuOpen, setMenuOpen] = React.useState(false);
@@ -61,16 +82,18 @@ function hundleSearchClick(searchElement) {
     const searchClassName = "moviescards__notfound";
     const nonSearchClassName = "moviescards__notfound_hide"; 
     setSearchClassName(( searchElements.length === 0 ) ? searchClassName : nonSearchClassName)
+    setIndex( 0 );
+    
 }
 
 
 
 //Кнопка "еще"
 function handleShowMore() {
-  setIndex( index + 1 );
+  setIndex( index + add_SIZE );
 }
 React.useEffect(() => {
-  const numberOfItems = PAGE_SIZE * ( index + 1 ); 
+  const numberOfItems = PAGE_SIZE + index; 
   const newArray = []; 
   for(let i= 0 ;i< currentCards.length ; i++ ){
     if(i < numberOfItems) 
@@ -86,7 +109,7 @@ React.useEffect(() => {
    const nonButtonClassName = "more__button_hide";
    setButtonClassName((newArray === 0 || currentCards.length === newArray.length) ? nonButtonClassName : activeButtonClassName);
 
- }, [currentCards, index]);
+ }, [currentCards, index, PAGE_SIZE]);
 
 
  //Строим карточки с фильмами
