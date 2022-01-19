@@ -10,10 +10,11 @@ function Movies(props) {
       <>
 <div className="movies">
     <Header nav={<Navigatiion onMenuClick={props.onMenuClick}/>}/>
-    <SearchForm /> 
-    <MoviesCardList />
+    <SearchForm onSearchClick={props.onSearchClick}/> 
+    <MoviesCardList cards={props.cards} />
+    <p className={props.searchClassName}>Ничего не найдено!</p>
     <section className="more">
-      <button className="more__button" >Еще</button> 
+      <button className={props.buttonMore} onClick={props.onShowMore} >Еще</button> 
     </section>
 </div>
 <Footer />

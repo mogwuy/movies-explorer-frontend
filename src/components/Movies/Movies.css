@@ -2,6 +2,23 @@
     margin: 0 auto;
 }
 
+.moviescards__notfound {
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 26px;
+  text-align: center;
+  letter-spacing: -0.04em;
+  color: #000000;
+}
+
+.moviescards__notfound_hide {
+  display:none;
+  visibility: hidden;
+}
+
+
 .more {
   margin: 0px auto 32px;
   max-width: 1140px;
@@ -26,6 +43,10 @@
   text-decoration-line: none;
   transition: opacity .4s ease-out;
   cursor: pointer;
+}
+.more__button_hide {
+  display:none;
+  visibility: hidden;
 }
 
 @media screen and (max-width: 1158px) {
