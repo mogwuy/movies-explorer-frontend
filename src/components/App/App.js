@@ -21,9 +21,9 @@ import SavedMoviesCard from '../SavedMovies/SavedMoviesCard/SavedMoviesCard.js'
 
 
 function App(props) {
+  const [isLoading, setLoading] = React.useState(false);
   const [isLoggedIn, setLoggedIn] = React.useState(false);
   const [currentCards, setCards] = React.useState([]);
-  const [allCards, setAllCards] = React.useState([]);
   const [savedCards, setSavedCards] = React.useState([]);
   const [searchClassName, setSearchClassName] = React.useState ("moviescards__notfound_hide");
   const [pageSize, setPageSize ] = React.useState (3);
@@ -46,7 +46,6 @@ React.useEffect(() => {
 }, [] );
 
 React.useEffect(() => {
- initialCards();
  initialSavedCards()
 }, [isLoggedIn] );
 
@@ -57,7 +56,7 @@ function tokenCheck() {
       if(data){
         setLoggedIn(true);
         setСurrentUser(data);
-        navigate("/movies");
+        setLoading(true)
       }
     })
  .catch((err) => {
@@ -74,6 +73,7 @@ function loginApi(currentEmail, currentPassword){
   .then((data) => {
     if (data){
       tokenCheck();
+      navigate("/movies");
     }
   })
    .catch((err) => {
@@ -107,18 +107,6 @@ function loginApi(currentEmail, currentPassword){
     navigate("/signin");
   }
 
-  //Загружаем сразу все карточки с сервера в память
-  function initialCards() {
-    movies.getInitialCards()
-  .then((cardsData) => {
-    setAllCards(cardsData);
-   })
-   .catch((err) => {
-     console.log(`Ошибка: ${err}`); 
-     });
-  }
-
-
     //Если размер экрана изменился
   React.useEffect(() => {
       if ( isMediumMedia ) {
@@ -144,7 +132,22 @@ function loginApi(currentEmail, currentPassword){
 //Поиск карточек
 //Нажимаем на кнопку поиска
 function hundleSearchClick(searchElement) {
-    const searchElements = allCards.filter(card => card.nameRU.includes(searchElement.search) ||  (card.nameEN !== null && card.nameEN.includes(searchElement.search)) ||  (card.director !== null && card.director.includes(searchElement.search)) || (card.country !== null && card.country.includes(searchElement.search)) );
+  if (!localStorage.getItem ("allCardsList")){
+  movies.getInitialCards()
+  .then((cardsData) => {
+    searchCards (searchElement, cardsData)
+    localStorage.setItem("allCardsList", JSON.stringify(cardsData));
+   })
+   .catch((err) => {
+     console.log(`Ошибка: ${err}`); 
+     });  
+  }  else {
+    const allCardsList = JSON.parse(localStorage.getItem("allCardsList"))
+    searchCards (searchElement, allCardsList)
+  }
+}
+function searchCards (searchElement, cardsList) {
+  const searchElements = cardsList.filter(card => card.nameRU.includes(searchElement.search) ||  (card.nameEN !== null && card.nameEN.includes(searchElement.search)) ||  (card.director !== null && card.director.includes(searchElement.search)) || (card.country !== null && card.country.includes(searchElement.search)) );
     //Проверка на чекбокс короткометражки
     if (searchElement.checkbox) {
       const shortFilms = searchElements.filter(card => card.duration < 40)
@@ -157,7 +160,6 @@ function hundleSearchClick(searchElement) {
     const nonSearchClassName = "moviescards__notfound_hide"; 
     setSearchClassName(( searchElements.length === 0 ) ? searchClassName : nonSearchClassName)
     setIndex( 0 );
-    
 }
 
 //Кнопка "еще"
@@ -291,8 +293,9 @@ function initialSavedCards() {
           <Route path="/signin" element= {<Login loginApi={loginApi}/>} />
           <Route exact path="/" element= {<Main isLoggedIn={isLoggedIn} />} />
           <Route path="/movies" element= {
-              isLoggedIn ? <Movies onMenuClick={handleMenuClick} onSearchClick={hundleSearchClick} cards={cardElements} onShowMore={handleShowMore} buttonMore={buttonClassName} searchClassName={searchClassName}/>
-                         : <Navigate to="/signin" /> 
+             isLoading ? ( isLoggedIn ? <Movies onMenuClick={handleMenuClick} onSearchClick={hundleSearchClick} cards={cardElements} onShowMore={handleShowMore} buttonMore={buttonClassName} searchClassName={searchClassName}/>
+                                      : <Navigate to="/signin" /> ) 
+                       : <Preloader/>
                         }  />
           <Route path="/saved-movies" element= {
               isLoggedIn ? <SavedMovies onMenuClick={handleMenuClick} cards={cardSavedElements} onShowMore={handleShowMore} buttonMore={buttonClassName} searchClassName={searchClassName}/>
