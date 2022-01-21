@@ -1,19 +1,9 @@
 import React from 'react'
-import SavedMoviesCard from '../SavedMoviesCard/SavedMoviesCard.js'
 
-function SavedMoviesCardList() {
+function SavedMoviesCardList(props) {
     return (
         <section className="moviescards">
-          <SavedMoviesCard />
-          <SavedMoviesCard />
-          <SavedMoviesCard />
-          <SavedMoviesCard />
-          <SavedMoviesCard />
-          <SavedMoviesCard />
-          <SavedMoviesCard />
-          <SavedMoviesCard />
-          <SavedMoviesCard />
-          <SavedMoviesCard />
+          {props.cards}
         </section>
     )
 };

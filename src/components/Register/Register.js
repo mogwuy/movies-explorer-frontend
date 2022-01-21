@@ -4,10 +4,14 @@ import headerLogo from '../../images/header-logo.svg';
 import { NavLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
-function Register() {
+function Register(props) {
 
   const { register, handleSubmit, formState: { errors }} = useForm();
-  const onSubmit = data => console.log(data);
+  const onSubmit = data => {
+    props.registrationApi(data.name, data.email, data.password)
+  };
+
+      
 
     return (
     <section className="register">
@@ -17,7 +21,11 @@ function Register() {
       <h5 className="register__title">Добро пожаловать!</h5>
       <div className="register__form">
         <p className="register__text">Имя</p>
-        <input type="text" className="register__input"  defaultValue="Виталий" name="name" minLength="2" maxLength="40" required/>
+        <input type="text" className="register__input"  defaultValue="Виталий" name="name"
+         {...register('name', { required: true, pattern: {
+          value: /^[?!,.а-яА-ЯёЁ0-9\s]{2,40}$/i,
+          message: 'Что-то пошло не так...'
+        } })}/>
         <p className="register__error" id="register__error-name"></p>
         <p className="register__text">E-mail</p>
         <input type="email" className="register__input" defaultValue="pochta@yandex.ru" name="email"
