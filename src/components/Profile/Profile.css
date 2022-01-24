@@ -72,6 +72,20 @@
     cursor: pointer;
 }
 
+.profile__submit_disabled {
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    color: rgb(100, 100, 100);
+    background: #FFF;
+    text-decoration: none;
+    border:0px;
+    padding: 0;
+}
+
 .profile__buttonsign {
     margin-top:16px;
     width: 100%;

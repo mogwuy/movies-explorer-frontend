@@ -1,12 +1,8 @@
 import React from 'react'
 import './MoviesCard.css'
-import { CurrentUserContext } from '../../../contexts/CurrentUserContext.js';
-
 
 function MoviesCard(props) {
-    const currentUser = React.useContext(CurrentUserContext);
     const isSaved = props.savedCards.some(saved => saved.moveId === props.card.id);
-
     const cardSavedButtonClassName = (
         ` ${isSaved ? 'moviescard__save' : 'moviescard__notsave'}`
       ); 
@@ -22,8 +18,9 @@ function MoviesCard(props) {
                 </div>
                 <button className={cardSavedButtonClassName} onClick={handleSaveClick}></button>
             </div>
-                
+            <a href={props.card.trailerLink} target="_blank" >
             <img className="moviescard__image" src={`https://api.nomoreparties.co/${props.card.image.url}`} alt="Изображение Фильма"></img>
+            </a>
         </div>
     )
 };

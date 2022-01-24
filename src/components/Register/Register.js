@@ -6,11 +6,13 @@ import { useForm } from 'react-hook-form';
 
 function Register(props) {
 
-  const { register, handleSubmit, formState: { errors }} = useForm();
+  const { register, handleSubmit, formState: { errors }} = useForm({ mode: 'onChange',
+  reValidateMode: 'onChange',});
   const onSubmit = data => {
     props.registrationApi(data.name, data.email, data.password)
   };
-
+  const isClosed = Object.keys(errors).length > 0 ? 'register__submit_disabled'  : "register__submit";
+  const isBlocked = Object.keys(errors).length > 0 ? true : false;
       
 
     return (
@@ -22,7 +24,8 @@ function Register(props) {
       <div className="register__form">
         <p className="register__text">Имя</p>
         <input type="text" className="register__input"  defaultValue="Виталий" name="name"
-         {...register('name', { required: true, pattern: {
+         {...register('name', { 
+          required: true, pattern: {
           value: /^[?!,.а-яА-ЯёЁ0-9\s]{2,40}$/i,
           message: 'Что-то пошло не так...'
         } })}/>
@@ -46,7 +49,8 @@ function Register(props) {
       </div>
       </div>
       <div className="register__block">
-        <button type="submit" className="register__submit" defaultValue="Зарегистрироваться">Зарегистрироваться</button>
+        <button disabled={isBlocked} type="submit" className={isClosed} defaultValue="Зарегистрироваться">Зарегистрироваться</button>
+        <p className="login__error-autorize">{props.isErrorLogin}</p>
         <p className="register__registered">Уже зарегестрированы?<NavLink className="register__link" to="/signin">Войти</NavLink></p>
       </div>
       </form>

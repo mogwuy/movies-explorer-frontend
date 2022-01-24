@@ -5,10 +5,13 @@ import { NavLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 function Login(props) {
-  const { register, handleSubmit, formState: { errors }} = useForm();
+  const { register, handleSubmit, formState: { errors }} = useForm({ mode: 'onChange',
+  reValidateMode: 'onChange',});
   const onSubmit = data => {
     props.loginApi(data.email, data.password)
   };
+  const isClosed = Object.keys(errors).length > 0 ? 'register__submit_disabled'  : "register__submit";
+  const isBlocked = Object.keys(errors).length > 0 ? true : false;
 
     return (
     <section className="login">
@@ -35,7 +38,8 @@ function Login(props) {
       </div>
       </div>
       <div className="login__block">
-        <button type="submit" className="login__submit" defaultValue="Войти">Войти</button>
+        <button disabled={isBlocked} type="submit" className={isClosed} defaultValue="Войти">Войти</button>
+        <p className="login__error-autorize">{props.isErrorLogin}</p>
         <p className="login__registered">Ещё не зарегистрированы?<NavLink className="login__link" to="/signup">Регистрация</NavLink></p>
       </div>
       </form>

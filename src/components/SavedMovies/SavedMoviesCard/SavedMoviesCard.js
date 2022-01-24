@@ -14,8 +14,9 @@ function SavedMoviesCard(props) {
                 </div>
                 <button className="moviescard__saveremove" onClick={handleDelClick}></button>
             </div>
-                
+            <a href={props.card.trailer} target="_blank" >   
             <img className="moviescard__image" src={props.card.image} alt="Изображение Фильма"></img>
+            </a>
         </div>
     )
 };
