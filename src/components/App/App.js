@@ -16,7 +16,8 @@ import { useMediaQuery } from 'react-responsive'
 import {movies} from '../../utils/MoviesApi';
 import {api} from '../../utils/MainApi';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext.js';
-import {shortFilmDuration, mediumNumberOfItemsPerPage, bigNumberOfItemsPerPage, smallNumberOfItemsPerPage, mediumNumberOfAddedElements, bigNumberOfAddedElements, zero} from '../../constants/constants.js'
+import {shortFilmDuration, mediumNumberOfItemsPerPage, bigNumberOfItemsPerPage, smallNumberOfItemsPerPage, mediumNumberOfAddedElements, bigNumberOfAddedElements, zero} from '../../constants/constants.js';
+import { Helmet } from 'react-helmet';
 
 
 
@@ -43,7 +44,7 @@ function App(props) {
   email: "111@mail.com",
   _id: "1111",
 });
-const navigate = useNavigate()
+const navigate = useNavigate();
 
 
 React.useEffect(() => {
@@ -100,19 +101,19 @@ function loginApi(currentEmail, currentPassword){
   .then((data) => {
     if (data){
       tokenCheck();
-      setErrorLogin("")
+      setErrorLogin("");
       navigate("/movies");
     }
   })
    .catch((err) => {
      console.log(`Ошибка: ${err}`); 
-     setLoading(true)
-     setErrorLogin("Неправильный Логин или Пароль")
+     setLoading(true);
+     setErrorLogin("Неправильный Логин или Пароль");
    });
   }
 
   function registrationApi(currentName, currentEmail, currentPassword) {
-    setLoading(false)
+    setLoading(false);
  api.registration({
     name: currentName,
     email: currentEmail,   
@@ -121,12 +122,12 @@ function loginApi(currentEmail, currentPassword){
   .then((data) => {
     if (data){
       loginApi(currentEmail, currentPassword)
-      setErrorLogin("")
+      setErrorLogin("");
     }
  })
    .catch((err) => {
      console.log(`Ошибка: ${err}`); 
-     setErrorLogin("Регистрация неудачна!")
+     setErrorLogin("Регистрация неудачна!");
    });
   }
 
@@ -171,14 +172,14 @@ function loginApi(currentEmail, currentPassword){
 //Нажимаем на кнопку поиска
 function hundleSearchClick(searchElement) {
   localStorage.setItem("searchElementMovies", JSON.stringify(searchElement));
-  setSearchElementMovies(searchElement)
+  setSearchElementMovies(searchElement);
   if (localStorage.getItem ("allCardsList")){
-    const allCardsList = JSON.parse(localStorage.getItem("allCardsList"))
-    searchCards (searchElement, allCardsList, false)
+    const allCardsList = JSON.parse(localStorage.getItem("allCardsList"));
+    searchCards (searchElement, allCardsList, false);
   }  else {
     movies.getInitialCards()
     .then((cardsData) => {
-      searchCards (searchElement, cardsData, false)
+      searchCards (searchElement, cardsData, false);
       localStorage.setItem("allCardsList", JSON.stringify(cardsData));
      })
      .catch((err) => {
@@ -193,20 +194,19 @@ function hundleSearchClick(searchElement) {
 //Поиск среди сохраненных
 function hundleSaveSearchClick(searchElement) {
   localStorage.setItem("searchElementSave", JSON.stringify(searchElement));
-  setSearchElementSave(searchElement)
+  setSearchElementSave(searchElement);
   if ( Object.keys(searchElement).length > zero){
    searchCards (searchElement, savedCardsSave, true);
   } else {
     renderCards(savedCardsSave);
   }
          //Показывает, что ничего не найдено
-         setSearchClassName(( savedCardsSave.length === zero ) ? "moviescards__notfound" : "moviescards__notfound_hide")
+         setSearchClassName(( savedCardsSave.length === zero ) ? "moviescards__notfound" : "moviescards__notfound_hide");
          setIndex( zero );
 }
 
 //Поиск карточек
 function searchCards (searchElement, cardsList, isSaved) {
- 
   const searchElements = cardsList.filter(card => 
    ((card.nameRU !== null) ? card.nameRU.toLowerCase().includes(searchElement.search.toLowerCase()) : '') ||
    ((card.nameEN !== null) ? card.nameEN.toLowerCase().includes(searchElement.search.toLowerCase()) : '') ||
@@ -215,7 +215,7 @@ function searchCards (searchElement, cardsList, isSaved) {
    //Если поиск по сохраненным, то изменяем хук с данными сохраненными, если нет, то в общей куче ищем.
    if (isSaved) {
     if (searchElement.checkbox) {
-      const shortFilms = searchElements.filter(card => card.duration < shortFilmDuration)
+      const shortFilms = searchElements.filter(card => card.duration < shortFilmDuration);
       setSavedCards(shortFilms);
     } else {
       setSavedCards(searchElements);
@@ -223,7 +223,7 @@ function searchCards (searchElement, cardsList, isSaved) {
    } else {
     //Проверка на чекбокс короткометражки
     if (searchElement.checkbox) {
-      const shortFilms = searchElements.filter(card => card.duration < shortFilmDuration)
+      const shortFilms = searchElements.filter(card => card.duration < shortFilmDuration);
       setCards(shortFilms);
       localStorage.setItem("searched", JSON.stringify(shortFilms));
     } else {
@@ -231,7 +231,7 @@ function searchCards (searchElement, cardsList, isSaved) {
       localStorage.setItem("searched", JSON.stringify(searchElements));
     }}
            //Показывает, что ничего не найдено
-           setSearchClassName(( searchElements.length === zero ) ? "moviescards__notfound" : "moviescards__notfound_hide")
+           setSearchClassName(( searchElements.length === zero ) ? "moviescards__notfound" : "moviescards__notfound_hide");
            setIndex( zero );
 
 }
@@ -249,7 +249,7 @@ function handleShowMore() {
   for(let i= 0 ;i< cards.length ; i++ ){
     if(i < numberOfItems) 
     {
-    newArray.push(cards[i])
+    newArray.push(cards[i]);
     }
     else {
     }
@@ -270,10 +270,10 @@ function handleUpdateUser(data) {
 })
 .catch((err) => {
   if (err === 409) {
-    setErrorLogin("Данный адрес электронной почты занят!")
+    setErrorLogin("Данный адрес электронной почты занят!");
   } else {
     console.log(`Ошибка: ${err}`); 
-    setErrorLogin("Неудачно!")
+    setErrorLogin("Неудачно!");
   }
 
 });
@@ -286,8 +286,8 @@ function initialSavedCards() {
   api.getMe()
   .then((data) => {
     if(data){
-      const savedCardsElement = cardsData.map((card) => card.owner === data._id ? card : '')
-      setSavedCards(savedCardsElement)
+      const savedCardsElement = cardsData.map((card) => card.owner === data._id ? card : '');
+      setSavedCards(savedCardsElement);
       setSavedCardsSave(savedCardsElement);
     }
   })
@@ -303,6 +303,9 @@ function initialSavedCards() {
   return (
     <div className="page">
       <CurrentUserContext.Provider value={ currentUser }>
+      <Helmet>
+          <title>Movies Explorer</title>
+      </Helmet>
         <Routes>
           <Route path="/signup" element= {
            isLoading ? ( isLoggedIn ? <Navigate to="/movies" /> 
