@@ -21,14 +21,14 @@ function Login(props) {
       <h5 className="login__title">Рады видеть!</h5>
       <div className="login__form">
         <p className="login__text">E-mail</p>
-        <input type="email" className="login__input" defaultValue="pochta@yandex.ru"
+        <input type="email" className="login__input" placeholder="pochta@yandex.ru"
         {...register('email', { required: true, pattern: {
           value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
           message: 'Что-то пошло не так...'
         } })} />
         <p className="login__error" id="login__error-email">{errors.email && errors.email.message}</p>
         <p className="login__text">Пароль</p>
-        <input type="password" className="login__input" defaultValue="Пароль"
+        <input type="password" className="login__input" placeholder="Пароль"
         {...register('password', { required: true, pattern: {
           value: /^[A-Z0-9_-]{8,12}$/i,
           message:

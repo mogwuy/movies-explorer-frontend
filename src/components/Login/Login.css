@@ -58,25 +58,7 @@
       color: #FF4062;
       
   }
-  .login__error-autorize {
-    margin: 13px auto;
-    height: 12px;
-    width: 166px;
-    font-family: 'Inter', 'Arial', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 10px;
-    line-height: 12px;
-    color: #FF4062;
-    text-align: center;
-    visibility: visible;
-  }
 
-  .login__error-autorize:empty {
-    visibility: hidden;
-    opacity: 0;
-    transition: closed 0.3s, opacity 0.3s linear;
-  }
   
   .login__submit {
       border: 0;

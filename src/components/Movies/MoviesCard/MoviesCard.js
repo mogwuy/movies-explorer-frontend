@@ -2,11 +2,17 @@ import React from 'react'
 import './MoviesCard.css'
 
 function MoviesCard(props) {
-    const isSaved = props.savedCards.some(saved => saved.moveId === props.card.id);
+  const [isSaved, setSaved] = React.useState(false);
+
+ React.useEffect(() => {
+  setSaved(props.savedCards.some(saved => saved.moveId === props.card.id));
+}, [props.savedCards]);
+
     const cardSavedButtonClassName = (
         ` ${isSaved ? 'moviescard__save' : 'moviescard__notsave'}`
       ); 
       function handleSaveClick() {
+        setSaved(true);
         props.onCardSave(props.card, isSaved);
       }  
     return (

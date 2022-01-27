@@ -129,7 +129,7 @@ class MainApi {
 
 const api = new MainApi(
     {
-    baseUrl: 'http://api.mogwuy-diplom.nomoredomains.rocks:3005',
+    baseUrl: 'http://localhost:3005',
     otherUrl: 'https://api.nomoreparties.co',
     },
     {

@@ -10,7 +10,7 @@ import Footer from '../Footer/Footer.js';
 function Main(props) {
     return (
       <>
-      <Header nav={ props.isLoggedIn ? <Navigation />
+      <Header nav={ props.isLoggedIn ? <Navigation onMenuClick={props.onMenuClick} />
                                      : <NavigationMain />
                   }/>
       <main className="content">

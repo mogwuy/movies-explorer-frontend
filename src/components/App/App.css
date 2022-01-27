@@ -33,6 +33,60 @@ body {
   margin: 0 auto 0;
 }
 
+.popup__errors {
+  position: fixed;
+  top: 20px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  padding-top: 15px;
+  height: 26px;
+  width: 250px;
+  border-radius: 4px;
+  border:1px solid black;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  background-color: #FFF;
+  z-index:5;
+  color: #FF4062;
+  text-align: center;
+  visibility: visible;
+}
+
+.popup__errors_hide {
+  display:none;
+  visibility: hidden;
+}
+
+.popup__errors:empty {
+  visibility: hidden;
+  opacity: 0;
+  transition: closed 0.3s, opacity 0.3s linear;
+}
+
+.login__error-autorize {
+  margin: 13px auto;
+  height: 12px;
+  width: 166px;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  color: #FF4062;
+  text-align: center;
+  visibility: visible;
+}
+
+.login__error-autorize:empty {
+  visibility: hidden;
+  opacity: 0;
+  transition: closed 0.3s, opacity 0.3s linear;
+}
+
 @media screen and (max-width: 768px) {
 
   .titles {

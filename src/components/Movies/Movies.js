@@ -11,7 +11,8 @@ import {api} from '../../utils/MainApi';
 
 function Movies(props) {
 
-  
+  const [errorPopupClassName, setErrorPopupClassName] = React.useState("popup__errors_hide");
+
   React.useEffect(() => {
     if (localStorage.getItem("searched")) 
       {
@@ -20,11 +21,22 @@ function Movies(props) {
       }
   }, []);
 
-
-
  React.useEffect(() => {
   props.renderCards(props.currentCards);
 }, [props.currentCards, props.currentUser, props.index, props.pageSize]);
+
+//Выводим сообщение об ошибке
+React.useEffect(() => {
+  if (props.isErrorLogin) {
+    setErrorPopupClassName("popup__errors")
+  }
+}, [props.savedCards]);
+//Убираем сообщение об ошибке.
+React.useEffect(() => {
+  setTimeout(() => {
+    setErrorPopupClassName("popup__errors_hide");
+  }, 3000);
+}, [props.savedCards]);
 
 
   //Сохранение карточек с фильмами
@@ -32,19 +44,22 @@ function Movies(props) {
     if (!isSaved){
       api.putSaveMovie(card)
       .then((newCard) => {
-        props.initialSavedCards();
-        props.setCards((state) => state.map((c) => c.moveId === card.id ? newCard : c))
+        props.setSavedCards((state) => {state.push(newCard); return state});
+        props.setCards((state) => state.map((c) => c.moveId === card.id ? newCard : c));
     })
       .catch((err) => {
        console.log(`Ошибка: ${err}`); 
+       props.setErrorLogin('Не удалось сохранить ролик!')
+       props.setSavedCards((state) => state.map((c) => c.moveId === card.id ? '' : c));
+       props.setCards((state) => state.map((c) => c.moveId === card.id ? '' : c));
      });
     } else {
       const savedCard = props.savedCards.find(saved => saved.moveId == card.id);
       const savedId = savedCard._id 
      api.deleteСard(savedId)
      .then(() => {
-      props.initialSavedCards();
-      props.setCards((state) => state.map((c) => c.moveId === card.id ? '' : c))
+      props.setSavedCards((state) => state.map((c) => c.moveId === card.id ? '' : c));
+      props.setCards((state) => state.map((c) => c.moveId === card.id ? '' : c));
    })
      .catch((err) => {
       console.log(`Ошибка: ${err}`); 
@@ -61,8 +76,9 @@ function Movies(props) {
     return (
       <>
 <div className="movies">
+    <div className={errorPopupClassName}>{props.isErrorLogin}</div>
     <Header nav={<Navigatiion onMenuClick={props.onMenuClick}/>}/>
-    <SearchForm onSearchClick={props.onSearchClick}/> 
+    <SearchForm onSearchClick={props.onSearchClick} searchElement={props.searchElement} setSearchElement={props.setSearchElementMovies} /> 
     <MoviesCardList cards={cardElements} />
     <p className={props.searchClassName}>Ничего не найдено!</p>
     <section className="more">

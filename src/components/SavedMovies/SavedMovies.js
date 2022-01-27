@@ -18,7 +18,7 @@ function SavedMovies(props) {
 function handleCardDel(card) {
   api.deleteСard(card._id)
   .then(() => {
-    props.initialSavedCards();
+    props.setSavedCards((state) => state.filter((c) => c._id !== card._id));
     props.setCards((state) => state.map((c) => c.moveId === card.id ? c : ''))
     localStorage.setItem("searched", JSON.stringify(props.currentCards));
 })
@@ -35,7 +35,7 @@ function handleCardDel(card) {
       <>
         <div className="movies">
             <Header nav={<Navigatiion onMenuClick={props.onMenuClick}/>}/>
-            <SearchForm onSearchClick={props.onSearchClick} /> 
+            <SearchForm onSearchClick={props.onSearchClick} searchElement={props.searchElement} setSearchElement={props.setSearchElementSave}/> 
             <SavedMoviesCardList cards={cardSavedElements}/>
             <p className={props.searchClassName}>Ничего не найдено!</p>
             <section className="more">
