@@ -127,6 +127,7 @@ function loginApi(currentEmail, currentPassword){
  })
    .catch((err) => {
      console.log(`Ошибка: ${err}`); 
+     setLoading(true);
      setErrorLogin("Регистрация неудачна!");
    });
   }
