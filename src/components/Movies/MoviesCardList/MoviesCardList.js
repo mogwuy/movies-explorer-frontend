@@ -1,18 +1,14 @@
-import React from 'react'
 import './MoviesCardList.css'
-import MoviesCard from '../MoviesCard/MoviesCard.js'
+import React, { Suspense } from 'react';
+import Preloader from '../../Movies/Preloader/Preloader.js'
 
-function MoviesCardList() {
+function MoviesCardList(props) {
     return (
+       <Suspense fallback={<Preloader/>}>
         <section className="moviescards">
-          <MoviesCard saved="moviescard__notsave"/>
-          <MoviesCard saved="moviescard__notsave"/>
-          <MoviesCard saved="moviescard__save"/>
-          <MoviesCard saved="moviescard__save"/>
-          <MoviesCard saved="moviescard__save"/>
-          <MoviesCard saved="moviescard__notsave"/>
-          <MoviesCard saved="moviescard__notsave"/>
+          {props.cards}
         </section>
+      </Suspense>
     )
 };
 

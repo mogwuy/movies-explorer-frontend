@@ -1,19 +1,22 @@
 import React from 'react'
-import cardImage from '../../../images/pic__COLOR_pic.png'
 import './SavedMoviesCard.css'
 
-function SavedMoviesCard() {
+function SavedMoviesCard(props) {
+    function handleDelClick() {
+        props.onCardDel(props.card);
+      }  
     return (
         <div className="moviescard">
             <div className="moviescard__headline">
                 <div className="moviescard__headline-left">
-                  <h4 className="moviescard__title">33 слова о дизайне</h4>
-                  <p className="moviescard__duration">1ч 47м</p>
+                  <h4 className="moviescard__title">{props.card.nameRU}</h4>
+                  <p className="moviescard__duration">{props.card.duration} Минут</p>
                 </div>
-                <button className="moviescard__saveremove"></button>
+                <button className="moviescard__saveremove" onClick={handleDelClick}></button>
             </div>
-                
-            <img className="moviescard__image" src={cardImage} alt="Изображение Фильма"></img>
+            <a href={props.card.trailer} target="_blank" >   
+            <img className="moviescard__image" src={props.card.image} alt="Изображение Фильма"></img>
+            </a>
         </div>
     )
 };

@@ -1,11 +1,12 @@
 import headerLogo from '../../images/header-logo.svg';
+import { NavLink } from 'react-router-dom';
 import './Header.css';
 
 function Header(props) {
     return (
 
       <header className="header">
-        <a href="/"><img className="header__logo" src={headerLogo} alt="Логотип"></img></a>
+        <NavLink to="/"><img className="header__logo" src={headerLogo} alt="Логотип"></img></NavLink>
        {props.nav}
       </header>
       );
